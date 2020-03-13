@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div id="root">
+      <form id="targetForm">
+        <fieldset>
+          <legend>test</legend>
+          <label for="path">path</label>
+          <input type="text" id="path" name="path"/>
+          <br/>
+          <label for="parentEl">parentEl</label>
+          <input type="text" id="parentEl" name="parentEl"/>
+          <br/>
+          <label for="path" for="targetEl">targetEl</label>
+          <input type="text" id="targetEl" name="targetEl"/>
+          <br/>
+        </fieldset>
+      </form>
+      <label for="path" for="interval">Interval</label>
+      <input type="number" id="interval" name="interval"/>
+      <br/>
+      <label for="path" for="count">count</label>
+      <input type="number" id="count" name="count"/>
+      <br/>
+      <button type="button" id="doCroll">Do</button>
+      <button type="button" id="stopCroll">stop</button>
+    </div>
+  </body>
+  <script src="/vendor/jquery.min.js"></script>
+  <script src="/vendor/axios.min.js"></script>
+  <script src="/javascripts/main.js"></script>
+  <script>
+    $(document).ready(function(){
+      new Main($('#root'))
+    })
+  </script>
+</html>
