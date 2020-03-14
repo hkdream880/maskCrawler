@@ -3,39 +3,109 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
   </head>
   <body>
-    <div id="root">
-      <form id="targetForm">
-        <fieldset>
-          <legend>test</legend>
-          <label for="path">path</label>
-          <input type="text" id="path" name="path"/>
-          <br/>
-          <label for="parentEl">parentEl</label>
-          <input type="text" id="parentEl" name="parentEl"/>
-          <br/>
-          <label for="path" for="targetEl">targetEl</label>
-          <input type="text" id="targetEl" name="targetEl"/>
-          <br/>
-        </fieldset>
-      </form>
-      <label for="path" for="interval">Interval</label>
-      <input type="number" id="interval" name="interval"/>
-      <br/>
-      <label for="path" for="count">count</label>
-      <input type="number" id="count" name="count"/>
-      <br/>
-      <button type="button" id="doCroll">Do</button>
-      <button type="button" id="stopCroll">stop</button>
+    <div id="root" class="container-xl">
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Mast Hunter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <!-- <a class="nav-link" href="#">About</a> -->
+            </li>
+          </ul>
+
+          <form class="form-inline">
+            <select class="custom-select mr-sm-2 timeSelector<%= i %>" id="all_time_selector">
+              <option selected>min</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+            </select>
+            <button id="all_scan" class="btn btn-outline-light my-2 my-sm-0" type="button">All Scan</button>
+            <button id="all_stop" class="btn btn-outline-light my-2 my-sm-0" type="button">All Stop</button>
+          </form>
+        </div>
+      </nav>
+
+      <div class="row row-cols-4 contents">
+      <% for(var i = 0 ; i < prodInfoList.length ; i++){ %>
+        <div class="col">
+          <div class="card transition" id="card<%= i %>" style="width: 15rem; display: inline-block;">
+            <img src="<%= prodInfoList[i].prodImg %>" class="card-img-top" >
+            <div class="card-body">
+              <p class="card-text">
+                <% if(prodInfoList[i].prodName.length > 25){%>
+                  <%= prodInfoList[i].prodName.substring(0,25)+'...' %>
+                <% } else { %>
+                  <%= prodInfoList[i].prodName %>
+                <% } %>
+              </p>
+              <p class="card-text" style="color: red; font-size: 13px;">
+                <small class="timeString<%= i %>">
+                  yyyy mm dd
+                </small>
+              / 
+                <small class="countString<%= i %>">0</small>
+              </p>
+              <div class="row row-cols-2">
+                <div class="col">
+                  <button id="crawl_btn<%= i %>" class="btn btn-primary scan-btn" type="button" style="width: 100%;" data-idx="<%= i %>">
+                    <!-- scan-loading spinner-border -->
+                    <span class="spinner-border-sm scan-loading" role="status" aria-hidden="true"></span>
+                    scan
+                  </button>
+                </div>
+                <div class="col">
+                  <button 
+                    style="width: 100%;" data-link="<%= prodInfoList[i].prodPath %>" type="button" 
+                    class="btn link-btn linkBtn<%= i %>">
+                    <%= prodInfoList[i].prodStatus? 'on sale':'sellout' %>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="col-auto my-1">
+                <select class="custom-select mr-sm-2 timeSelector<%= i %>" id="time_selector<%= i %>">
+                  <option selected>min</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% } %>
+    </div>
     </div>
   </body>
   <script src="/vendor/jquery.min.js"></script>
   <script src="/vendor/axios.min.js"></script>
+  <script src="/vendor/moment-with-locales.min.js"></script>
+  <script src="/vendor/popper.min.js"></script>
+  <script src="/vendor/js/bootstrap.min.js"></script>
   <script src="/javascripts/main.js"></script>
   <script>
     $(document).ready(function(){
-      new Main($('#root'))
+      moment.locale('ko');
+      new Main($('#root'), '<%= decodeURIComponent(JSON.stringify(prodInfoList)) %>')
     })
   </script>
 </html>

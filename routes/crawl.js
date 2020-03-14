@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var axios = require('axios');
-var cheerio = require('cheerio');
-var puppeteer = require('puppeteer')
-var fs = require('fs')
-var path = require('path');
+const express = require('express');
+const router = express.Router();
+const axios = require('axios');
+const cheerio = require('cheerio');
+const puppeteer = require('puppeteer')
+const consts = require('../common/const')
+const util = require('../common/util')
 
 /* GET users listing. */
 router.get('/', async (req, res, next) =>{
@@ -23,7 +23,7 @@ router.get('/', async (req, res, next) =>{
 });
 
 
-router.get('/phantom', async (req, res, next) =>{
+router.get('/refresh', async (req, res, next) =>{
   try {
     const requestParam = req.query
     const browser = await puppeteer.launch();
@@ -43,6 +43,18 @@ router.get('/phantom', async (req, res, next) =>{
   }
 })
 
+router.get('/naver-market', async (req, res, next) =>{
+  try {
+    if(req.query.path.indexOf(consts.naverMarket.regExp) < 0){
+      throw consts.errorMsg.pathErr
+    }
+    const resultVal  = await util.getProdInfo(req.query.path)
+    res.status(200).json({result: 200, data: resultVal})
+  } catch (error) {
+    res.status(200).json({result: 500, err: error})
+  }
+});
+
 const getHtml = async (path) => {
   try {
     return await axios.get(path);
@@ -50,13 +62,6 @@ const getHtml = async (path) => {
     console.error(error);
   }
 };
-
-
-function delay( timeout ) {
-  return new Promise(( resolve ) => {
-    setTimeout( resolve, timeout );
-  });
-}
 
 
 module.exports = router;

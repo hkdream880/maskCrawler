@@ -1,8 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
 
 a {
   color: #00B7FF;
+}
+
+.transition {
+  transition: 0.5s;
+  margin-bottom: 10px;
+}
+
+.contents {
+  margin-top: 50px;
+}
+
+.scanAll{
+  width: 40px;
 }

@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var crollRouter = require('./routes/croll');
+const indexRouter = require('./routes/index');
+const crawlRouter = require('./routes/crawl');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -16,7 +16,10 @@ app.engine('html', require('ejs').renderFile);
 
 app.use('/vendor',[
   express.static(__dirname + '/node_modules/axios/dist/'),
-  express.static(__dirname + '/node_modules/jquery/dist/')
+  express.static(__dirname + '/node_modules/jquery/dist/'),
+  express.static(__dirname + '/node_modules/bootstrap/dist/'),
+  express.static(__dirname + '/node_modules/popper.js/dist/umd/'),
+  express.static(__dirname + '/node_modules/moment/min/')
 ])
 
 app.use(logger('dev'));
@@ -26,7 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/croll', crollRouter);
+app.use('/crawl', crawlRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
