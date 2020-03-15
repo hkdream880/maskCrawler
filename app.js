@@ -7,8 +7,10 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const crawlRouter = require('./routes/crawl');
 
-const app = express();
+const job = require('./schedule')
 
+const app = express();
+job.start()
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
