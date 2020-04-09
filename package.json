@@ -20,7 +20,8 @@
     "moment": "^2.24.0",
     "morgan": "~1.9.1",
     "popper.js": "^1.16.1",
-    "puppeteer": "^2.1.1"
+    "puppeteer": "^2.1.1",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

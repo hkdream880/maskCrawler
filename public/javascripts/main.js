@@ -13,8 +13,17 @@ Main.prototype = {
   _init: function(){
     this._bindEvent();
     this._initializingProdInfo();
+    console.log(io)
+    this._connectMaskSocket()
   },
-
+  _connectMaskSocket: function(){
+    this.maskSocket = io.connect('http://localhost:3000/maskSocket', {
+      path: '/socket',
+    });
+    this.maskSocket.on('newData',$.proxy(function(data){
+      console.log(data)
+    },this));
+  },
   _initializingProdInfo: function(){
     for(var i = 0; i<this._prodInfoList.length;i++){
       this._prodInfoList[i].crawlingState = false
