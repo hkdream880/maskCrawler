@@ -6,9 +6,12 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const crawlRouter = require('./routes/crawl');
 const puppeteer = require('puppeteer')
-const cheerio = require('cheerio')
-const job = require('./schedule')
+const fs = require('fs')
+const intervalPromise = require('interval-promise')
+
 const {urlList} = require('./data/url.json')
+const job = require('./schedule')
+const { crawlSuccessCalback } = require('./common/util')
 const app = express();
 
 // view engine setup
@@ -46,58 +49,81 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error.html');
 });
 
+const crawling = async (i,browser,resultData)=>{
+  console.log('start : ',i)
+  console.time('crawler'+i);
+  const page = await browser.newPage()
+  page.setDefaultTimeout(5000)
+  let returnData = {
+    prodImg: '/images/fail.jpg',
+    prodName: 'failed',
+    prodStatus: false,
+    prodPath: urlList[i].url,
+    index: i,
+    crawlTime: 'failed'
+  }
 
-
-const schedule = async ()=>{
-  const browser = await puppeteer.launch();
-  let i = 0
-  let returnData = [];
-  console.log("urlList.length :",urlList.length)
-  const delayLoop = async ()=>{
-    console.log('test : ',i)
-    const page = await browser.newPage();
-    await page.goto(urlList[i].url)
-    .then(async (res)=>{
+  await page.goto(urlList[i].url)
+  .then(async ()=>{
+    console.log('urlList[i].refreshFlag : ',urlList[i].refreshFlag)
+    if(urlList[i].refreshFlag){
       await page.reload()
-      const html = await page.$eval( "body", e => e.outerHTML );
-      const $ = cheerio.load( html );
-      const crawlTime = new Date()
-      console.log(i,' / success : ',crawlTime)
-      returnData.push({
-        prodImg: $(urlList[i].imgEl).attr('src'),
-        prodName: $(urlList[i].titleEl).text(),
-        prodStatus:  $(urlList[i].soldOutEl).length > 0 ? false : true,
-        prodPath: urlList[i].url,
-        crawlTime
+      .then(async (res)=>{
+        returnData = await crawlSuccessCalback(page,urlList[i],i);
+        resultData.push(returnData)
+        app.get('io').of('/maskSocket').emit('newData',[returnData])
+        console.timeEnd('crawler'+i)
       })
-      setTimeout(async ()=>{
-        if(i < urlList.length){
-           delayLoop()
-        }else{
-          browser.close()
-          console.log(returnData)
-          app.get('io').of('/maskSocket').emit('newData',returnData)
-        }
-      },1000)
-    })
-    .catch( async (e)=>{
-      console.log('error : ',i)
-      if(i < urlList.length){
-          delayLoop()
-      }else{
-        browser.close()
-        console.log(returnData)
-          app.get('io').of('/maskSocket').emit('newData',returnData)
-      }
-    })
-    
-    ++i
-  }  
-  delayLoop()
+      .catch(async (err)=>{
+        console.timeEnd('crawler'+i)
+        console.log('finish catch2222')
+        resultData.push(returnData)
+      })
+    }else{
+      returnData = await crawlSuccessCalback(page,urlList[i],i);
+      resultData.push(returnData)
+      app.get('io').of('/maskSocket').emit('newData',[returnData])
+      console.timeEnd('crawler'+i)
+    }
+  })
+  .catch(async (err)=>{
+    console.log('finish catch1111')
+    resultData.push(returnData)
+    console.timeEnd('crawler'+i)
+  })
 }
-job(schedule)
+
+
+const maskCrawling = async (jobFlage)=>{
+  console.time("startCrawling");
+  console.log("startCrawling jobFlage : ",jobFlage)
+  const browser = await puppeteer.launch()
+  const resultData = []
+  let i = 0;
+  await intervalPromise(async()=>{
+    await crawling(i,browser,resultData)      
+    ++i
+  },2000,{iterations: urlList.length})
+
+  console.log('method over!!!!!!!!!!!!')
+  
+  browser.close()
+  // app.get('io').of('/maskSocket').emit('newData',resultData)
+  
+  console.timeEnd('startCrawling')
+  fs.writeFile('./data/result.json',JSON.stringify(resultData),'utf8',function(){
+    console.log('file write finish!!!')
+  })
+  if(jobFlage){
+    console.log('cron job start')
+    job(maskCrawling)
+  }
+}
+
+maskCrawling(true)
+
 
 module.exports = app;

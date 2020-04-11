@@ -20,74 +20,35 @@
               <!-- <a class="nav-link" href="#">About</a> -->
             </li>
           </ul>
-
-          <form class="form-inline">
-            <select class="custom-select mr-sm-2 timeSelector<%= i %>" id="all_time_selector">
-              <option selected>min</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="20">20</option>
-              <option value="30">30</option>
-            </select>
-            <button id="all_scan" class="btn btn-outline-light my-2 my-sm-0" type="button">All Scan</button>
-            <button id="all_stop" class="btn btn-outline-light my-2 my-sm-0" type="button">All Stop</button>
-          </form>
         </div>
       </nav>
 
       <div class="row row-cols-4 contents">
       <% for(var i = 0 ; i < prodInfoList.length ; i++){ %>
         <div class="col">
-          <div class="card transition" id="card<%= i %>" style="width: 15rem; display: inline-block;">
-            <img src="<%= prodInfoList[i].prodImg %>" class="card-img-top" >
+          <div class="card transition" id="card<%= prodInfoList[i].index %>" style="width: 15rem; display: inline-block;">
+            <img src="<%= prodInfoList[i].prodImg %>" class="card-img-top" id="prod_img<%= prodInfoList[i].index %>" >
             <div class="card-body">
-              <p class="card-text">
+              <p class="card-text" id="prod_name<%= prodInfoList[i].index %>">
                 <% if(prodInfoList[i].prodName.length > 25){%>
                   <%= prodInfoList[i].prodName.substring(0,25)+'...' %>
                 <% } else { %>
                   <%= prodInfoList[i].prodName %>
                 <% } %>
               </p>
-              <p class="card-text" style="color: red; font-size: 13px;">
-                <small class="timeString<%= i %>">
-                  yyyy mm dd
-                </small>
-              / 
-                <small class="countString<%= i %>">0</small>
-              </p>
-              <div class="row row-cols-2">
-                <div class="col">
-                  <button id="crawl_btn<%= i %>" class="btn btn-primary scan-btn" type="button" style="width: 100%;" data-idx="<%= i %>">
-                    <!-- scan-loading spinner-border -->
-                    <span class="spinner-border-sm scan-loading" role="status" aria-hidden="true"></span>
-                    scan
-                  </button>
-                </div>
-                <div class="col">
-                  <button 
+              <div class="col-auto my-1 maskStatusWraper">
+                <p class="card-text maskStatus">
+                  <small class="timeString<%= prodInfoList[i].index %>">
+                    yyyy mm dd
+                  </small>
+                </p>
+              </div>
+              <div class="col-auto my-1">
+                <button 
                     style="width: 100%;" data-link="<%= prodInfoList[i].prodPath %>" type="button" 
-                    class="btn link-btn linkBtn<%= i %>">
+                    class="btn link-btn linkBtn<%= prodInfoList[i].index %>">
                     <%= prodInfoList[i].prodStatus? 'on sale':'sellout' %>
                   </button>
-                </div>
-              </div>
-              
-              <div class="col-auto my-1">
-                <select class="custom-select mr-sm-2 timeSelector<%= i %>" id="time_selector<%= i %>">
-                  <option selected>min</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="20">20</option>
-                  <option value="30">30</option>
-                </select>
               </div>
             </div>
           </div>

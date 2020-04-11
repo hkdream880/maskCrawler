@@ -1,17 +1,12 @@
 const express = require('express')
 const router = express.Router()
+const fs = require('fs')
 
-const util = require('../common/util')
-const cheerio = require('cheerio')
-const puppeteer = require('puppeteer')
 
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
-  let prodInfoList = []
-
-  prodInfoList = [];
-
+  const prodInfoList = JSON.parse(fs.readFileSync('./data/result.json', 'utf8'));
   res.render('index.html', { title: 'Mask Hunter', prodInfoList });
 });
 

@@ -1,28 +1,25 @@
-const axios = require('axios')
 const cheerio = require('cheerio')
-const consts = require('./const')
-const puppeteer = require('puppeteer')
 
-const getProdInfo = async (path) => {
-  // return axios.get(path)
-  // .then((res)=>{
-  //   const $ = cheerio.load(res.data);
-  //   const prodName = $(consts.naverMarket.targetNameEl).text()
-  //   const prodImg = $(consts.naverMarket.targetImgEl).attr('src')
-  //   const prodStatus = $(consts.naverMarket.targetStatusEl).length > 0 ? false : true;
-    
-  //   return {
-  //     prodImg,
-  //     prodName,
-  //     prodStatus,
-  //     prodPath: path,
-  //     crawlTime: new Date()
-  //   }
-  // })
-  // .catch((err)=>{
-  //   console.log(err)
-  //   return null
-  // })
+const crawlSuccessCalback = async (page, target, idx) => {
+  const html = await page.$eval( "body", e => e.outerHTML )
+  const $ = cheerio.load( html );
+  
+  console.log('finish success')
+  const crawlTime = new Date()
+  const prodImg = $(target.imgEl).attr('src')
+  const prodName = $(target.titleEl).text()
+  const prodStatus = $(target.soldOutEl).length > 0 ? false : true
+  const prodPath = target.url
+  const returnData = {
+    prodName,
+    prodStatus,
+    prodPath,
+    index: idx,
+    crawlTime : new Date(),
+    prodImg: $(target.imgEl).attr('src').indexOf('http')>=0?prodImg:'http://www.welkeepsmall.com/'+prodImg
+  }
+  
+  return returnData
 }
 
-module.exports = { getProdInfo }
+module.exports = { crawlSuccessCalback }

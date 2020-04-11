@@ -15,3 +15,9 @@ a {
 .scanAll{
   width: 40px;
 }
+.maskStatusWraper {
+  text-align: center;
+}
+.maskStatus {
+  color: red;
+}
