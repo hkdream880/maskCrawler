@@ -100,7 +100,7 @@ const crawling = async (i,browser,resultData)=>{
 const maskCrawling = async (jobFlage)=>{
   console.time("startCrawling");
   console.log("startCrawling jobFlage : ",jobFlage)
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({args:['--no-sandbox', '--disable-setuid-sandbox']})
   const resultData = []
   let i = 0;
   await intervalPromise(async()=>{

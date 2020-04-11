@@ -20,7 +20,7 @@ Main.prototype = {
 
   _connectMaskSocket: function(){
     var _this = this
-    this.maskSocket = io.connect('http://localhost:3000/maskSocket', {
+    this.maskSocket = io.connect('/maskSocket', {
       path: '/socket',
     });
     this.maskSocket.on('newData',$.proxy(function(data){
