@@ -14,5 +14,5 @@ Day of Week: 0-6 (Sun-Sat)
 
 module.exports = (callBack) => {
   
-  new Cron.CronJob('00 */2 00-23 * * 0-6',callBack,null,true,'Asia/Seoul')
+  new Cron.CronJob('00 */2 09-18 * * 0-6',callBack,null,true,'Asia/Seoul')
 }
