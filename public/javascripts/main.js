@@ -13,6 +13,7 @@ scan-btn
 Main.prototype = {
 
   _init: function(){
+    this._ignoreNewWindowList = []
     this._bindEvent();
     this._initializingProdInfo();
     this._connectMaskSocket()
@@ -45,8 +46,21 @@ Main.prototype = {
 
   _bindEvent: function(){
     this.$root.on('click','.link-btn',$.proxy(this._openLink,this))
+    this.$root.on('click','.ignore-btn',$.proxy(this._ignoreNewWindow,this))
   },
-
+  _ignoreNewWindow: function(e){
+    var link = $(e.currentTarget).data('link')
+    var targetidx = this._ignoreNewWindowList.indexOf(link)
+    if(targetidx < 0){
+      this._ignoreNewWindowList.push(link)
+      $(e.currentTarget).removeClass('btn-primary')
+      $(e.currentTarget).addClass('btn-danger')
+    }else{
+      this._ignoreNewWindowList.splice(targetidx,1)
+      $(e.currentTarget).removeClass('btn-danger')
+      $(e.currentTarget).addClass('btn-primary')
+    }
+  },
   _openLink: function(e){
     var link = $(e.currentTarget).data('link')
     window.open(link,'_blank','channelmode=yes')
@@ -76,7 +90,9 @@ Main.prototype = {
     this.$root.find('.linkBtn'+data.index).removeClass('btn-primary')
 
     if(data.prodStatus === true){
-      window.open(data.prodPath,'_blank','channelmode=yes')
+      if(this._ignoreNewWindowList.indexOf(data.prodPath)>=0){
+        window.open(data.prodPath,'_blank','channelmode=yes')
+      }
       this.$root.find('.linkBtn'+data.index).addClass('btn-primary')
       this.$root.find('.linkBtn'+data.index).text('on sale')
       this.$root.find('#card'+data.index).addClass('bg-primary')
