@@ -127,56 +127,7 @@
       "soldOutEl": ".not_goods",
       "refreshFlag":false
     },
-    {
-      "url": "https://smartstore.naver.com/wiicare/products/3922733602",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
-    {
-      "url": "https://smartstore.naver.com/wiicare/products/4242262742",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
-    {
-      "url": "https://smartstore.naver.com/wiicare/products/3922699232",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
-    {
-      "url": "https://smartstore.naver.com/wiicare/products/4242272411",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
-    {
-      "url": "https://smartstore.naver.com/wiicare/products/4831400613",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
-    {
-      "url": "https://smartstore.naver.com/pyeongpyoen/products/4751210548",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
-    {
-      "url": "https://smartstore.naver.com/pyeongpyoen/products/4690028600",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
-
+    
 
     {
       "url": "https://smartstore.naver.com/echopear/products/4961501444",
@@ -185,13 +136,7 @@
       "soldOutEl": ".not_goods",
       "refreshFlag":false
     },
-    {
-      "url": "https://smartstore.naver.com/echopear/products/4196595736",
-      "imgEl": "._view_image_area",
-      "titleEl": ".prd_name strong",
-      "soldOutEl": ".not_goods",
-      "refreshFlag":false
-    },
+    
     {
       "url": "https://smartstore.naver.com/realize7/products/4959734181",
       "imgEl": "._view_image_area",

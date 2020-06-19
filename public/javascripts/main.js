@@ -90,7 +90,7 @@ Main.prototype = {
     this.$root.find('.linkBtn'+data.index).removeClass('btn-primary')
 
     if(data.prodStatus === true){
-      if(this._ignoreNewWindowList.indexOf(data.prodPath)>=0){
+      if(this._ignoreNewWindowList.indexOf(data.prodPath) < 0){
         window.open(data.prodPath,'_blank','channelmode=yes')
       }
       this.$root.find('.linkBtn'+data.index).addClass('btn-primary')
