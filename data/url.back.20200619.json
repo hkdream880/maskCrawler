@@ -1,0 +1,154 @@
+{
+  "urlList": [
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=997647",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=997662",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=997650",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=997667",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=922816",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=920693",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=997637",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+    {
+      "url": "http://www.welkeepsmall.com/shop/shopdetail.html?branduid=997640",
+      "imgEl": ".detail_image",
+      "titleEl": ".tit-prd",
+      "soldOutEl": ".soldout",
+      "refreshFlag":true
+    },
+
+    {
+      "url": "https://smartstore.naver.com/aer-shop/products/4722827602",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/mfbshop/products/4072435942",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/mfbshop/products/4680268551",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/mfbshop/products/4072573492",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/gonggami/products/4705579501",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url":  "https://smartstore.naver.com/korea-mask/products/4825762296",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/wiicare/products/3922733602",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/wiicare/products/4242262742",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/wiicare/products/3922699232",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/wiicare/products/4242272411",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/wiicare/products/4831400613",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/pyeongpyoen/products/4751210548",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/pyeongpyoen/products/4690028600",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    }
+
+  ]
+}
+

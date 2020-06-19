@@ -1,0 +1,321 @@
+{
+  common: {
+    polygon: {},
+    circle: {},
+    reRenderOverlay: false
+  },
+  complex: {
+    features: {},
+    complex: {
+      is_favorited: false,
+      favorited_count: 0
+    },
+    spaces: [],
+    education: {},
+    traffic: {
+      buses: [],
+      subways: []
+    },
+    agents: [],
+    recommend: [],
+    hasPremiumAgent: false,
+    isLoadingDetail: false
+  },
+  detail: {
+    room: {
+      dong: null,
+      room_size: 0,
+      status: null,
+      room_type: null,
+      is_favorited: false,
+      favorited_count: 0,
+      room_options: [],
+      safeties: []
+    },
+    space: {
+      layout_image: '',
+      supply_space: 0,
+      exclusive_space: 0,
+      contract_space: 0,
+      beds_num: 0,
+      bath_num: 0,
+      entrance_type_str: '',
+      household_num: 0
+    },
+    complex: {
+      maintenance_total_price_str: '_',
+      complex_name: '',
+      maintenance_standard: '',
+      maintenance_last_price: 0,
+      maintenance_total_price: 0,
+      maintenance_summer_total_price: 0,
+      maintenance_winter_total_price: 0,
+      jibun_address: '',
+      road_address: '',
+      complex_id: ''
+    },
+    agent: {
+      name: ''
+    },
+    score: {
+      average: {
+        price: 0,
+        maintenance: 0,
+        options: 0,
+        near: 0,
+        traffic: 0
+      },
+      total: 0,
+      message: '',
+      room: {
+        price: 0,
+        maintenance: 0,
+        options: 0,
+        near: 0,
+        traffic: 0
+      }
+    },
+    user: {},
+    otherRooms: [],
+    review: {},
+    reviewCount: 0,
+    education: {},
+    isAgent: false,
+    isLoadingDetail: false,
+    messengerActive: false,
+    messengerReceipted: true
+  },
+  filters: {
+    multi_room_type: [
+      0,
+      1,
+      2
+    ],
+    selling_type: [
+      0,
+      1,
+      2
+    ],
+    deposit_range: [
+      0,
+      999999
+    ],
+    price_range: [
+      0,
+      999999
+    ],
+    trade_range: [
+      0,
+      999999
+    ],
+    maintenance_cost_range: [
+      0,
+      999999
+    ],
+    include_maintenance_option1: true,
+    room_size: [
+      0,
+      999999
+    ],
+    supply_space_range: [
+      0,
+      999999
+    ],
+    room_floor_multi: [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      -1,
+      0
+    ],
+    division: false,
+    duplex: false,
+    room_type: [
+      1,
+      2
+    ],
+    enter_date_range: [
+      0,
+      999999
+    ],
+    parking_average_range: [
+      0,
+      999999
+    ],
+    household_num_range: [
+      0,
+      999999
+    ],
+    parking: false,
+    animal: false,
+    short_lease: false,
+    full_option: false,
+    built_in: false,
+    elevator: false,
+    balcony: false,
+    loan: false,
+    safety: false,
+    pano: false,
+    deal_type: [
+      0,
+      1
+    ]
+  },
+  marker: {
+    regions: [],
+    subways: [],
+    univs: [],
+    polices: [],
+    cctvs: [],
+    safety_heat: [],
+    agents: [],
+    isLoadingMarker: false,
+    is_agent_list_zoom: false
+  },
+  position: {
+    location: [],
+    center: [
+      126.98955,
+      37.5651
+    ],
+    zoom: 9
+  },
+  room: {
+    center: {
+      name: '',
+      gid: '',
+      code: '',
+      photo: ''
+    },
+    count: {
+      all: 0,
+      complex: 0,
+      lately: 0,
+      agent: null
+    },
+    hoverId: '',
+    locs: [],
+    features: [],
+    rooms: [],
+    complices: [],
+    agents: [],
+    page: 1,
+    limit: 0,
+    total: 0,
+    tab: 'all',
+    isLoadingRoom: true,
+    is_agent_list_zoom: false
+  },
+  roomUp: {
+    id: '',
+    room_type: 0,
+    building_type: '',
+    address: '',
+    location: [],
+    random_location: [],
+    complex_name: '',
+    jibun_address: '',
+    road_address: '',
+    dong: '',
+    ho: '',
+    is_noinfo_dong: false,
+    deal_type: 'rent',
+    price_info: [],
+    short_lease: false,
+    pyeong_type_list: [],
+    pyeong_type: '',
+    complex_seq: '',
+    space_seq: '',
+    building_floor: '',
+    room_floor: '',
+    room_size: '',
+    room_size_pyeong: '',
+    provision_size: '',
+    provision_size_pyeong: '',
+    contract_size: '',
+    contract_size_pyeong: '',
+    heating_type: '',
+    has_enter_date: false,
+    dont_know_enter_date: false,
+    enter_date: '',
+    moving_date: '',
+    max_floor: 50,
+    maintenance: false,
+    maintenance_option: 0,
+    maintenance_cost: '',
+    maintenance_items: [],
+    parking: false,
+    parking_cost: '',
+    animal: false,
+    elevator: false,
+    balcony: false,
+    built_in: false,
+    division: false,
+    duplex: false,
+    room_options: [],
+    loan: false,
+    title: '',
+    memo: '',
+    private_memo: '',
+    photos: [],
+    pano: null,
+    isUploading: false,
+    isLoading: false,
+    isInspect: false,
+    isRefresh: false
+  },
+  search: {
+    id: '',
+    type: '',
+    name: ''
+  },
+  user: {
+    email: '',
+    exist_room: false,
+    fb_id: '',
+    has_password: true,
+    is_agent: false,
+    kakao_id: '',
+    login_type: '',
+    name: '',
+    notification_count: 0,
+    phone: '',
+    profile_url: '',
+    profileReset: 0.42294416486840736,
+    isLogged: false,
+    isLoadingUser: false
+  },
+  subscription: {
+    joinYear: '',
+    joinMonth: '',
+    joinDay: '',
+    dependents: '',
+    tenantRecruitYear: '',
+    tenantRecruitMonth: '',
+    tenantRecruitDay: '',
+    birthYear: '',
+    birthMonth: '',
+    birthDay: '',
+    maritalStatus: '',
+    marriageReportYear: '',
+    marriageReportMonth: '',
+    marriageReportDay: '',
+    homeOwnership: '',
+    homeLessYear: '',
+    homeLessMonth: '',
+    homeLessDay: '',
+    noHomePeriod: '',
+    calNoHomePeriod: ''
+  },
+  favorite: {
+    total: 0,
+    page: 1,
+    limit: 24,
+    list: [],
+    isLoading: true
+  }
+}

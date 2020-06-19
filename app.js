@@ -123,7 +123,8 @@ const maskCrawling = async (jobFlage)=>{
   }
 }
 
-maskCrawling(true)
+//maskCrawling(true)
+job(maskCrawling)
 
 
 module.exports = app;
