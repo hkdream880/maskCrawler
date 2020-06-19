@@ -150,6 +150,43 @@
       "titleEl": ".prd_name strong",
       "soldOutEl": ".not_goods",
       "refreshFlag":false
+    },
+
+
+    {
+      "url": "https://smartstore.naver.com/soommask/products/4819235545",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/soommask/products/4972742878",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/soommask/products/4828127993",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/soommask/products/4962399948",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
+    },
+    {
+      "url": "https://smartstore.naver.com/soommask/products/4928470625",
+      "imgEl": "._view_image_area",
+      "titleEl": ".prd_name strong",
+      "soldOutEl": ".not_goods",
+      "refreshFlag":false
     }
   ]
 }
